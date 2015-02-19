@@ -24,8 +24,7 @@ angular.module( "vokal", [
 
         $routeProvider.when( "/", {
             templateUrl: "/build/templates/partials/home.html",
-            controller: "Home",
-            controllerAs: "home"
+            controller: "Home"
         } );
         $routeProvider.otherwise( {
             redirectTo: "/"

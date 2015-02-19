@@ -8,23 +8,34 @@ angular.module( "vokal.controllers" )
     {
         "use strict";
 
-        var canvas = new fabric.Canvas('main');
+        $scope.canvas = new fabric.Canvas('main');
+        $scope.fabricItems = [];
 
-        $scope.addToCanvas = function (title)
+        $scope.canvas.setWidth( $( ".main-container" ).width() - 100 );
+        $scope.canvas.setHeight( $( ".main-container" ).height() - 100 );
+        $scope.canvas.calcOffset();
+
+        $scope.addToCanvas = function ( title, type )
         {
-            var text = new fabric.Text( title, { left:0, top: 0});
 
-            canvas.add(text);
-            $scope.rerender();
+            $scope.fabricItems.push(
+                {
+                    pageTitle: title,
+                    pageType: type
+                }
+            );
+
+
+            var text = new fabric.Text( title,
+                {
+                    left:0,
+                    top: 0,
+                    fontFamily: "Arial",
+                    fontSize: 14
+                });
+
+            $scope.canvas.add(text);
         };
-
-        $scope.rerender = function () {
-            canvas.renderAll();
-            $scope.$apply();
-        };
-
-
-
     }
 
 ] );

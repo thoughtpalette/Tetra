@@ -7,6 +7,18 @@ body, html {
     height: 100%;
 }
 
+body {
+    overflow: hidden;
+}
+
+.clearfix:after {
+    content: " ";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+
 header {
     position: relative;
     z-index: 10;
@@ -43,6 +55,24 @@ header {
         height: 100%;
         padding: 20px 15px;
         background: #dbdbdb;
+
+        ul.page-list {
+            li {
+                padding: 5px 5px 5px 20px;
+                line-height: 34px;
+                text-transform: uppercase;
+                font-size: 12px;
+                margin-bottom: 5px;
+                background: #fff;
+                -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.35);
+                -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.35);
+                box-shadow: 0 1px 5px rgba(0,0,0,0.35);
+
+                button {
+                    float: right;
+                }
+            }
+        }
     }
 }
 
@@ -50,8 +80,17 @@ main {
     float: left;
     width: 75%;
     height: 100%;
+    padding-top: 40px;
 }
 
 canvas {
-    border: 1px solid #000;
+    border: 1px solid #999;
+    margin: 0 auto;
+    -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.35);
+    -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.35);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.35);
+}
+
+.canvas-container {
+    margin: 0 auto;
 }

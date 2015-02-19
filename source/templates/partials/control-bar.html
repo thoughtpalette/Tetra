@@ -1,12 +1,22 @@
 <aside>
 
-<form class="form-inline">
+    <h2 data-ng-if="fabricItems.length > 0">Pages</h2>
+
+    <ul class="page-list">
+        <li data-ng-repeat="item in fabricItems track by $index" class="clearfix">
+           {{ item.pageTitle }}
+           <button class="btn btn-danger" data-ng-click="removePage(item.pageTitle)">&times;</button>
+        </li>
+    </ul>
+
+<form class="form-inline" data-ng-submit="addToCanvas(title)">
+    <legend>Enter Page Title</legend>
+
     <div class="form-group">
         <label class="sr-only" for="text">Page Title</label>
         <input type="text" class="form-control" id="text" ng-model="title" placeholder="Page Title">
     </div>
-    <button type="submit" class="btn btn-default"
-        data-ng-click="addToCanvas(title)">+</button>
+    <button type="submit" class="btn btn-success">+</button>
 </form>
 
 </aside>

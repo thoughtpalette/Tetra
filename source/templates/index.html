@@ -16,14 +16,19 @@
 
     </head>
 
-    <body data-ng-controller="Site as site">
+    <body data-ng-controller="Site">
 
         <div data-ng-include="'/build/templates/partials/header.html'"></div>
 
-        <div data-ng-include="'/build/templates/partials/control-bar.html'" class="sidebar" data-ng-controller="Home"></div>
+        <div data-ng-include="'/build/templates/partials/control-bar.html'" class="sidebar"></div>
 
-        <main data-ng-view></main>
+        <main class="main-container">
+            <div class="canvas-container">
+                <canvas id="main"></canvas>
+            </div>
+        </main>
 
+        <script src="/build/jquery.js?v={{ VERSION }}"></script>
         <script src="/build/angular.js?v={{ VERSION }}"></script>
         <script src="/build/components.js?v={{ VERSION }}"></script>
         <script src="/build/project.js?v={{ VERSION }}"></script>
