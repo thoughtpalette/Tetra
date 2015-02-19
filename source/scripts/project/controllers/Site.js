@@ -2,22 +2,28 @@
 
 angular.module( "vokal.controllers" )
 
-.controller( "Site", [ "$scope", "$rootScope", "$location", "LoginPath", "RouteAuth",
+.controller( "Site", [ "$scope", "$rootScope",
 
-    function ( $scope, $rootScope, $location, LoginPath, RouteAuth )
+    function ( $scope, $rootScope )
     {
         "use strict";
 
-        // Redirect to login route on unauthorized API requests
-        $rootScope.$on( "APIRequestUnauthorized", function ()
+        var canvas = new fabric.Canvas('main');
+
+        $scope.addToCanvas = function (title)
         {
-            if( $location.path() !== LoginPath )
-            {
-                RouteAuth.storeRoles( [] );
-                $location.path( LoginPath );
-                return;
-            }
-        } );
+            var text = new fabric.Text( title, { left:0, top: 0});
+
+            canvas.add(text);
+            $scope.rerender();
+        };
+
+        $scope.rerender = function () {
+            canvas.renderAll();
+            $scope.$apply();
+        };
+
+
 
     }
 

@@ -1,6 +1,7 @@
 default:
   - clean:build
   - concat:scripts
+  - concat:jquery
   - concat:angular
   - concat:components
   - less

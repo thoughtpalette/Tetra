@@ -11,7 +11,8 @@
     "vokal-ng-api": "https://github.com/vokal/vokal-ng-api.git#3.x",
     "vokal-ng-lib": "https://github.com/vokal/vokal-ng-lib.git#1.x",
     "html5shiv": "3.7.x",
-    "css-reset": "https://github.com/vokal/css-reset.git#1.x"
+    "css-reset": "https://github.com/vokal/css-reset.git#1.x",
+    "fabric": "~1.4.13"
   },
   "available": {
     "jquery": "^2.1.x",
