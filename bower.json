@@ -1,0 +1,23 @@
+{
+  "name": "project-name",
+  "dependencies": {
+    "angular": "1.3.x",
+    "angular-route": "1.3.x",
+    "angular-touch": "1.3.x",
+    "angular-sanitize": "1.3.x",
+    "angular-messages": "1.3.x",
+    "angular-animate": "1.3.x",
+    "angular-mocks": "1.3.x",
+    "vokal-ng-api": "https://github.com/vokal/vokal-ng-api.git#3.x",
+    "vokal-ng-lib": "https://github.com/vokal/vokal-ng-lib.git#1.x",
+    "html5shiv": "3.7.x",
+    "css-reset": "https://github.com/vokal/css-reset.git#1.x"
+  },
+  "available": {
+    "jquery": "^2.1.x",
+    "jquery-cookie": "https://github.com/carhartl/jquery-cookie.git#1.4.x"
+  },
+  "resolutions": {
+    "angular": "1.3.x"
+  }
+}

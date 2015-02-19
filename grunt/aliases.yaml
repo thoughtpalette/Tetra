@@ -1,0 +1,31 @@
+default:
+  - clean:build
+  - concat:scripts
+  - concat:angular
+  - concat:components
+  - less
+  - copy
+  - ngtemplates
+  - envDev
+  - replace
+
+test:
+  - default
+  - instrument
+  - protractor_coverage
+  - default
+  - makeReport
+
+deploy:
+  - clean
+  - concat:scripts
+  - concat:angularMin
+  - concat:components
+  - less
+  - copy
+  - ngtemplates
+  - envProd
+  - replace
+  - uglify
+  - s3
+  - cloudfront

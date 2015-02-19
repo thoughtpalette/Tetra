@@ -1,0 +1,17 @@
+<br>
+<h3>Mocks example</h3>
+<br>
+<p>Add a contact</p>
+<form>
+    <input type="text" id="nextName" ng-model="nextContact">
+    <button id="add-btn" ng-click="addContact(nextContact)">Add</button>
+</form>
+<br>
+<p>List of contacts</p>
+<ul>
+    <li ng-repeat="contact in contacts track by $index">
+        {{ $index + 1 }}. {{ contact.name }}
+        <button ng-click="deleteContact( $index )">Delete</button>
+    </li>
+</ul>
+<br>
