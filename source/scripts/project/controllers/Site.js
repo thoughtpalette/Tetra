@@ -66,6 +66,7 @@ angular.module( "vokal.controllers" )
         // Start up
         $scope.canvas.setWidth( $( ".main-container" ).width() - 100 );
         $scope.canvas.setHeight( $( ".main-container" ).height() - 100 );
+        $scope.canvas.backgroundColor = "white";
         $scope.canvas.calcOffset();
 
         var img = new Image();
