@@ -2,14 +2,16 @@
 
     <div class="btn-group btn-group-justified tools " role="group" aria-label="...">
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-th-list"></i></button>
+            <button type="button" class="btn btn-default"
+            data-ng-click="enterPageMode()"><i class="glyphicon glyphicon-th-list"></i></button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default"
+            data-ng-click="enterDrawingMode()"><i class="glyphicon glyphicon-pencil"></i></button>
         </div>
     </div>
 
-    <form class="form-inline add-page" data-ng-submit="addToCanvas(title, typeSelected, tierSelected)">
+    <form class="form-inline add-page" data-ng-submit="addToCanvas(title, typeSelected, tierSelected)" data-ng-show="isPageMode">
 
         <div class="form-group">
             <label for="">Select Page Type
