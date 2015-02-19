@@ -82,7 +82,7 @@ angular.module( "vokal.controllers" )
         $scope.addToCanvas = function ( title, type, tier )
         {
 
-            $scope.getShapeType( title, type );
+            $scope.getShapeType( title, type, tier );
 
             $scope.fabricItems.push(
                 {
@@ -92,20 +92,36 @@ angular.module( "vokal.controllers" )
             );
         };
 
-        $scope.getShapeType = function ( title, type )
+        $scope.getShapeType = function ( title, type, tier )
         {
+            var tierWidth,
+                tierHeight;
+
+            if ( tier.tier == 1 ) {
+                tierWidth = 164;
+                tierHeight = 110;
+            }
+            else if ( tier.tier == 2 ) {
+                tierWidth = 164;
+                tierHeight = 110;
+            } else if ( tier.tier == 3 ) {
+                tierWidth = 100;
+                tierHeight = 66;
+            }
+
 
             switch (type.type) {
                 case "Landing Page":
                     var r = new fabric.Rect({
-                        width: 30,
-                        height: 20,
+                        width: tierWidth,
+                        height: tierHeight,
                         fill: "#818385"
                       });
 
 
                     // create a rectangle object
                     var t = new fabric.IText(title, {
+                      fontFamily: "Helvetica",
                       fill: "#818385",
                       fontSize: 12,
                       top : 10,
