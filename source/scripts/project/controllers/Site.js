@@ -10,6 +10,58 @@ angular.module( "vokal.controllers" )
 
         $scope.canvas = new fabric.Canvas('main');
         $scope.fabricItems = [];
+        $scope.pageTiers = [{tier: 1 }, {tier: 2 }, {tier: 3 } ];
+
+        $scope.pageOptions = [
+            {
+                id: 1,
+                type: "Landing Page"
+            },
+            {
+                id: 2,
+                type: "Site Level"
+            },
+            {
+                id: 3,
+                type: "Form/Dynamic Component"
+            },
+            {
+                id: 4,
+                type: "To be produced now"
+            },
+            {
+                id: 5,
+                type: "Title not yet decided"
+            },
+            {
+                id: 6,
+                type: "To be added at later time"
+            },
+            {
+                id: 7,
+                type: "Link opens new window or leaves site"
+            },
+            {
+                id: 8,
+                type: "Content alts on same page"
+            },
+            {
+                id: 9,
+                type: "Content is part of same page"
+            },
+            {
+                id: 10,
+                type: "Contents to be removed"
+            },
+            {
+                id: 11,
+                type: "Email Link"
+            },
+            {
+                id: 12,
+                type: "Download"
+            }
+        ];
 
         // Start up
         $scope.canvas.setWidth( $( ".main-container" ).width() - 100 );
@@ -27,8 +79,10 @@ angular.module( "vokal.controllers" )
         };
         img.src = "/build/images/legend.png";
 
-        $scope.addToCanvas = function ( title, type )
+        $scope.addToCanvas = function ( title, type, tier )
         {
+
+            $scope.getShapeType( title, type );
 
             $scope.fabricItems.push(
                 {
@@ -36,18 +90,80 @@ angular.module( "vokal.controllers" )
                     pageType: type
                 }
             );
-
-
-            var text = new fabric.Text( title,
-                {
-                    left:0,
-                    top: 0,
-                    fontFamily: "Arial",
-                    fontSize: 14
-                });
-
-            $scope.canvas.add(text);
         };
+
+        $scope.getShapeType = function ( title, type )
+        {
+
+            switch (type.type) {
+                case "Landing Page":
+                    var r = new fabric.Rect({
+                        width: 30,
+                        height: 20,
+                        fill: "#818385"
+                      });
+
+
+                    // create a rectangle object
+                    var t = new fabric.IText(title, {
+                      fill: "#818385",
+                      fontSize: 12,
+                      top : 10,
+                      left: 35
+                    });
+
+
+                    var group = new fabric.Group([ r, t ], {
+                      left: 100,
+                      top: 100,
+                      lockScalingX: true,
+                      lockScalingY: true,
+                      hasRotatingPoint: false,
+                      transparentCorners: false,
+                      cornerSize: 7,
+                      stroke: "#000000",
+                      textAlign: "center"
+                    });
+
+                    $scope.canvas.add(group);
+                break;
+                case "Site Level":
+
+                break;
+                case "Form/Dynamic Component":
+
+                break;
+                case "To be produced now":
+
+                break;
+                case "Title not yet decided":
+
+                break;
+                case "To be added at later time":
+
+                break;
+                case "Link opens in new window or leaves site":
+
+                break;
+                case "Content alts on same page":
+
+                break;
+                case "Content is part of same page":
+
+                break;
+                case "Contents to be removed":
+
+                break;
+                case "Email Link":
+
+                break;
+                case "Download":
+
+                break;
+            }
+
+        };
+
     }
 
 ] );

@@ -1,9 +1,26 @@
 <aside>
 
-    <form class="form-inline add-page" data-ng-submit="addToCanvas(title)">
-        <legend>Enter Page Title</legend>
+    <div class="btn-group btn-group-justified tools" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-th-list"></i></button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">Right</button>
+        </div>
+    </div>
+
+    <form class="form-inline add-page" data-ng-submit="addToCanvas(title, typeSelected, tierSelected)">
 
         <div class="form-group">
+            <label for="">Select Page Type
+                <select name="" id="" data-ng-options="item.type for item in pageOptions" data-ng-model="typeSelected"></select>
+            </label>
+            <label for="">Select Page Tier
+                <select name="" id="" data-ng-options="item.tier for item in pageTiers" data-ng-model="tierSelected"></select>
+            </label>
             <label class="sr-only" for="text">Page Title</label>
             <input type="text" class="form-control" id="text" ng-model="title" placeholder="Page Title">
         </div>
@@ -14,7 +31,7 @@
 
     <ul class="page-list">
         <li data-ng-repeat="item in fabricItems track by $index" class="clearfix">
-           {{ item.pageTitle }}
+           {{ item.pageTitle }} - <span>{{ item.pageType.type }}</span>
            <button class="btn btn-danger" data-ng-click="removePage(item.pageTitle)">&times;</button>
         </li>
     </ul>
