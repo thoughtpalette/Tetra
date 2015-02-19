@@ -1,0 +1,119 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'prune' ]
+2 info using npm@2.0.2
+3 info using node@v0.10.29
+4 verbose node_modules/karma-chrome-launcher unbuild
+5 verbose node_modules/karma-firefox-launcher unbuild
+6 verbose node_modules/karma-jasmine unbuild
+7 verbose node_modules/jasmine-reporters unbuild
+8 verbose node_modules/karma-junit-reporter unbuild
+9 verbose node_modules/protractor unbuild
+10 verbose node_modules/grunt-istanbul unbuild
+11 verbose node_modules/karma unbuild
+12 verbose node_modules/karma-coverage unbuild
+13 verbose node_modules/grunt-protractor-coverage unbuild
+14 info preuninstall karma-chrome-launcher@0.1.7
+15 info preuninstall karma-firefox-launcher@0.1.4
+16 info preuninstall karma-jasmine@0.2.3
+17 info preuninstall jasmine-reporters@1.0.1
+18 info preuninstall karma-junit-reporter@0.2.2
+19 info preuninstall protractor@1.7.0
+20 info preuninstall grunt-istanbul@0.3.0
+21 info preuninstall karma@0.12.31
+22 info preuninstall karma-coverage@0.1.5
+23 info preuninstall grunt-protractor-coverage@0.2.13
+24 info uninstall karma-chrome-launcher@0.1.7
+25 info uninstall karma-firefox-launcher@0.1.4
+26 info uninstall karma-jasmine@0.2.3
+27 info uninstall jasmine-reporters@1.0.1
+28 info uninstall karma-junit-reporter@0.2.2
+29 info uninstall protractor@1.7.0
+30 info uninstall grunt-istanbul@0.3.0
+31 info uninstall karma@0.12.31
+32 info uninstall karma-coverage@0.1.5
+33 info uninstall grunt-protractor-coverage@0.2.13
+34 verbose true,/Users/chrismarshall/Public/Projects/Tetra/node_modules,/Users/chrismarshall/Public/Projects/Tetra/node_modules unbuild karma-chrome-launcher@0.1.7
+35 info postuninstall karma-chrome-launcher@0.1.7
+36 verbose true,/Users/chrismarshall/Public/Projects/Tetra/node_modules,/Users/chrismarshall/Public/Projects/Tetra/node_modules unbuild karma-firefox-launcher@0.1.4
+37 info postuninstall karma-firefox-launcher@0.1.4
+38 verbose true,/Users/chrismarshall/Public/Projects/Tetra/node_modules,/Users/chrismarshall/Public/Projects/Tetra/node_modules unbuild karma-jasmine@0.2.3
+39 info postuninstall karma-jasmine@0.2.3
+40 verbose true,/Users/chrismarshall/Public/Projects/Tetra/node_modules,/Users/chrismarshall/Public/Projects/Tetra/node_modules unbuild jasmine-reporters@1.0.1
+41 info postuninstall jasmine-reporters@1.0.1
+42 verbose true,/Users/chrismarshall/Public/Projects/Tetra/node_modules,/Users/chrismarshall/Public/Projects/Tetra/node_modules unbuild karma-junit-reporter@0.2.2
+43 info postuninstall karma-junit-reporter@0.2.2
+44 verbose true,/Users/chrismarshall/Public/Projects/Tetra/node_modules,/Users/chrismarshall/Public/Projects/Tetra/node_modules unbuild protractor@1.7.0
+45 verbose /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin,[object Object] binRoot
+46 verbose gentlyRm verifying that /Users/chrismarshall/Public/Projects/Tetra/node_modules/protractor is managed by npm
+47 verbose gentlyRm verifying that /Users/chrismarshall/Public/Projects/Tetra/node_modules/protractor is managed by npm
+48 verbose true,/Users/chrismarshall/Public/Projects/Tetra/node_modules,/Users/chrismarshall/Public/Projects/Tetra/node_modules unbuild grunt-istanbul@0.3.0
+49 verbose /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin,[object Object] binRoot
+50 verbose gentlyRm verifying that /Users/chrismarshall/Public/Projects/Tetra/node_modules/grunt-istanbul is managed by npm
+51 verbose true,/Users/chrismarshall/Public/Projects/Tetra/node_modules,/Users/chrismarshall/Public/Projects/Tetra/node_modules unbuild karma@0.12.31
+52 verbose /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin,[object Object] binRoot
+53 info postuninstall karma@0.12.31
+54 verbose true,/Users/chrismarshall/Public/Projects/Tetra/node_modules,/Users/chrismarshall/Public/Projects/Tetra/node_modules unbuild karma-coverage@0.1.5
+55 info postuninstall karma-coverage@0.1.5
+56 verbose true,/Users/chrismarshall/Public/Projects/Tetra/node_modules,/Users/chrismarshall/Public/Projects/Tetra/node_modules unbuild grunt-protractor-coverage@0.2.13
+57 info postuninstall grunt-protractor-coverage@0.2.13
+58 silly cacheAndTest /Users/chrismarshall/Public/Projects/Tetra/node_modules/protractor is inside /Users/chrismarshall/Public/Projects/Tetra/node_modules
+59 silly gentlyRm /Users/chrismarshall/Public/Projects/Tetra/node_modules/protractor is managed by npm
+60 silly gentlyRm /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/protractor is not under /Users/chrismarshall/Public/Projects/Tetra/node_modules/protractor
+61 silly gentlyRm checking to see if /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/protractor is a link
+62 silly cacheAndTest /Users/chrismarshall/Public/Projects/Tetra/node_modules/protractor is inside /Users/chrismarshall/Public/Projects/Tetra/node_modules
+63 silly gentlyRm /Users/chrismarshall/Public/Projects/Tetra/node_modules/protractor is managed by npm
+64 silly gentlyRm /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/webdriver-manager is not under /Users/chrismarshall/Public/Projects/Tetra/node_modules/protractor
+65 silly gentlyRm checking to see if /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/webdriver-manager is a link
+66 silly cacheAndTest /Users/chrismarshall/Public/Projects/Tetra/node_modules/grunt-istanbul is inside /Users/chrismarshall/Public/Projects/Tetra/node_modules
+67 silly gentlyRm /Users/chrismarshall/Public/Projects/Tetra/node_modules/grunt-istanbul is managed by npm
+68 silly gentlyRm /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/grunt-istanbul is not under /Users/chrismarshall/Public/Projects/Tetra/node_modules/grunt-istanbul
+69 silly gentlyRm checking to see if /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/grunt-istanbul is a link
+70 verbose gentlyRm vacuuming /Users/chrismarshall/Public/Projects/Tetra/node_modules/karma-chrome-launcher
+71 verbose gentlyRm vacuuming /Users/chrismarshall/Public/Projects/Tetra/node_modules/karma-firefox-launcher
+72 verbose gentlyRm vacuuming /Users/chrismarshall/Public/Projects/Tetra/node_modules/karma-jasmine
+73 verbose gentlyRm vacuuming /Users/chrismarshall/Public/Projects/Tetra/node_modules/jasmine-reporters
+74 verbose gentlyRm vacuuming /Users/chrismarshall/Public/Projects/Tetra/node_modules/karma-junit-reporter
+75 silly gentlyRm /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/protractor is a link
+76 silly gentlyRm /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/webdriver-manager is a link
+77 silly gentlyRm /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/grunt-istanbul is a link
+78 verbose gentlyRm vacuuming /Users/chrismarshall/Public/Projects/Tetra/node_modules/karma
+79 verbose gentlyRm vacuuming /Users/chrismarshall/Public/Projects/Tetra/node_modules/karma-coverage
+80 verbose gentlyRm vacuuming /Users/chrismarshall/Public/Projects/Tetra/node_modules/grunt-protractor-coverage
+81 silly gentlyRm purging /Users/chrismarshall/Public/Projects/Tetra/node_modules/karma-chrome-launcher
+82 silly gentlyRm purging /Users/chrismarshall/Public/Projects/Tetra/node_modules/karma-firefox-launcher
+83 silly gentlyRm purging /Users/chrismarshall/Public/Projects/Tetra/node_modules/karma-jasmine
+84 silly gentlyRm purging /Users/chrismarshall/Public/Projects/Tetra/node_modules/jasmine-reporters
+85 silly gentlyRm purging /Users/chrismarshall/Public/Projects/Tetra/node_modules/karma-junit-reporter
+86 silly gentlyRm /Users/chrismarshall/Public/Projects/Tetra/node_modules/protractor/bin/protractor inside /Users/chrismarshall/Public/Projects/Tetra/node_modules/protractor
+87 verbose gentlyRm vacuuming /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/protractor
+88 silly gentlyRm /Users/chrismarshall/Public/Projects/Tetra/node_modules/protractor/bin/webdriver-manager inside /Users/chrismarshall/Public/Projects/Tetra/node_modules/protractor
+89 verbose gentlyRm vacuuming /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/webdriver-manager
+90 silly gentlyRm /Users/chrismarshall/Public/Projects/Tetra/node_modules/grunt-istanbul/bin/grunt-istanbul inside /Users/chrismarshall/Public/Projects/Tetra/node_modules/grunt-istanbul
+91 verbose gentlyRm vacuuming /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/grunt-istanbul
+92 silly gentlyRm purging /Users/chrismarshall/Public/Projects/Tetra/node_modules/karma
+93 silly gentlyRm purging /Users/chrismarshall/Public/Projects/Tetra/node_modules/karma-coverage
+94 silly gentlyRm purging /Users/chrismarshall/Public/Projects/Tetra/node_modules/grunt-protractor-coverage
+95 silly gentlyRm removing /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/protractor
+96 silly gentlyRm removing /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/webdriver-manager
+97 silly gentlyRm removing /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/grunt-istanbul
+98 silly gentlyRm quitting because other entries in /Users/chrismarshall/Public/Projects/Tetra/node_modules
+99 silly gentlyRm quitting because other entries in /Users/chrismarshall/Public/Projects/Tetra/node_modules
+100 silly gentlyRm quitting because other entries in /Users/chrismarshall/Public/Projects/Tetra/node_modules
+101 silly gentlyRm quitting because other entries in /Users/chrismarshall/Public/Projects/Tetra/node_modules
+102 silly gentlyRm quitting because other entries in /Users/chrismarshall/Public/Projects/Tetra/node_modules
+103 verbose stack Error: EACCES, unlink '/Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/protractor'
+104 verbose cwd /Users/chrismarshall/Public/Projects/Tetra
+105 error Darwin 14.1.0
+106 error argv "node" "/usr/local/bin/npm" "prune"
+107 error node v0.10.29
+108 error npm  v2.0.2
+109 error path /Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/protractor
+110 error code EACCES
+111 error errno 3
+112 error Error: EACCES, unlink '/Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/protractor'
+112 error  { [Error: EACCES, unlink '/Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/protractor']
+112 error   errno: 3,
+112 error   code: 'EACCES',
+112 error   path: '/Users/chrismarshall/Public/Projects/Tetra/node_modules/.bin/protractor' }
+113 error Please try running this command again as root/Administrator.
+114 verbose exit [ 3, true ]
