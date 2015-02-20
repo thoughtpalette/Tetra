@@ -11,7 +11,8 @@ angular.module( "vokal", [
     "vokal.directives",
     "vokal.filters",
     "vokal.API",
-    "vokal.RouteAuth"
+    "vokal.RouteAuth",
+    "ui.bootstrap"
 ] )
 
 .config( [ "$routeProvider", "$locationProvider", "$sceDelegateProvider",

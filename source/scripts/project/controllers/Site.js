@@ -2,9 +2,9 @@
 
 angular.module( "vokal.controllers" )
 
-.controller( "Site", [ "$scope", "$rootScope",
+.controller( "Site", [ "$scope", "$rootScope", "$modal",
 
-    function ( $scope, $rootScope )
+    function ( $scope, $rootScope, $modal )
     {
         "use strict";
 
@@ -27,11 +27,80 @@ angular.module( "vokal.controllers" )
         $scope.canvas.setBackgroundImage(img.src, $scope.canvas.renderAll.bind($scope.canvas), {
                     originX: 'left',
                     originY: 'top',
-                    left: 232,
+                    left: 100,
                     top: 0
                 });
         };
         img.src = "/build/images/legend.png";
+
+        $scope.clearCanvas = function ()
+        {
+            $scope.canvas.clear();
+            $scope.fabricItems
+        };
+
+        $scope.downloadBoard = function ()
+        {
+            // Stops active object outline from showing in image
+            $scope.canvas.deactivateAll();
+
+            var initialCanvasScale = $scope.canvas.canvasScale;
+
+            // Click an artifical anchor to 'force' download.
+            var link = document.createElement('a');
+            var filename = 'main' + '.png';
+            link.download = filename;
+            link.href = $scope.getCanvasBlob();
+            link.click();
+
+            $scope.canvas.canvasScale = initialCanvasScale;
+            $scope.canvas.setZoom();
+        };
+
+        $scope.getCanvasBlob = function ()
+        {
+                var base64Data = $scope.getCanvasData();
+                var data = base64Data.replace('data:image/png;base64,', '');
+                var blob = b64toBlob(data, 'image/png');
+                var blobUrl = URL.createObjectURL(blob);
+
+                return blobUrl;
+        };
+
+        function b64toBlob(b64Data, contentType, sliceSize) {
+            contentType = contentType || '';
+            sliceSize = sliceSize || 512;
+
+            var byteCharacters = atob(b64Data);
+            var byteArrays = [];
+
+            for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+                var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+                var byteNumbers = new Array(slice.length);
+                for (var i = 0; i < slice.length; i++) {
+                    byteNumbers[i] = slice.charCodeAt(i);
+                }
+
+                var byteArray = new Uint8Array(byteNumbers);
+
+                byteArrays.push(byteArray);
+            }
+
+            var blob = new Blob(byteArrays, {type: contentType});
+            return blob;
+        }
+
+        $scope.getCanvasData = function ()
+        {
+            var data = $scope.canvas.toDataURL({
+                width: $scope.canvas.getWidth(),
+                height: $scope.canvas.getHeight(),
+                multiplier: self.downloadMultipler
+            });
+
+            return data;
+        };
 
         $scope.enterDrawingMode = function ()
         {
@@ -78,62 +147,35 @@ angular.module( "vokal.controllers" )
 
             switch (type.type) {
                 case "Landing Page":
-                    // var r = new fabric.Rect({
-                    //     width: tierWidth,
-                    //     height: tierHeight,
-                    //     fill: "#818385"
-                    //   });
+                    var r = new fabric.Rect({
+                        width: tierWidth,
+                        height: tierHeight,
+                        fill: "#818385"
+                      });
 
-                    // var r = fabric.loadSVGFromURL('/build/images/svg/landing.svg', function (objects) {
-                    //      $scope.canvas.add.apply($scope.canvas, objects);
-                    //      $scope.canvas.renderAll();
-                    // });
-
-                    var group = [];
-
-                    fabric.loadSVGFromURL("/build/images/svg/landing.svg",function(objects,options) {
-
-                    var loadedObjects = new fabric.Group(group);
-
-                    loadedObjects.set({
-                            left: 100,
-                            top: 100,
-                            width:175,
-                            height:175
-                    });
-
-                    $scope.canvas.add(loadedObjects);
-                    $scope.canvas.renderAll();
-
-                    },function(item, object) {
-                            object.set('id',item.getAttribute('id'));
-                            group.push(object);
+                    // create a rectangle object
+                    var t = new fabric.IText(title, {
+                      fontFamily: "Helvetica",
+                      fill: "#818385",
+                      fontSize: 12,
+                      top : 10,
+                      left: 35
                     });
 
 
-                    // // create a rectangle object
-                    // var t = new fabric.IText(title, {
-                    //   fontFamily: "Helvetica",
-                    //   fill: "#818385",
-                    //   fontSize: 12,
-                    //   top : 10,
-                    //   left: 35
-                    // });
+                    var group = new fabric.Group([ r, t ], {
+                      left: 100,
+                      top: 100,
+                      lockScalingX: true,
+                      lockScalingY: true,
+                      hasRotatingPoint: false,
+                      transparentCorners: false,
+                      cornerSize: 7,
+                      stroke: "#000000",
+                      textAlign: "center"
+                    });
 
-
-                    // var group = new fabric.Group([ r, t ], {
-                    //   left: 100,
-                    //   top: 100,
-                    //   lockScalingX: true,
-                    //   lockScalingY: true,
-                    //   hasRotatingPoint: false,
-                    //   transparentCorners: false,
-                    //   cornerSize: 7,
-                    //   stroke: "#000000",
-                    //   textAlign: "center"
-                    // });
-
-                    // $scope.canvas.add(group);
+                    $scope.canvas.add(group);
                 break;
                 case "Site Level":
 
