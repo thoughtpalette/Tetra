@@ -59,10 +59,13 @@ angular.module( "vokal.controllers" )
 
         $scope.clearCanvas = function ()
         {
-            canvas.clear();
-            $scope.fabricItems = [];
-            $scope.fileName = "";
-            $scope.nameSet = false;
+            if ( confirm( "Do you want to start over?" ) )
+            {
+                canvas.clear();
+                $scope.fabricItems = [];
+                $scope.fileName = "";
+                $scope.nameSet = false;
+            }
         };
 
         $scope.editName = function ()
@@ -101,17 +104,11 @@ angular.module( "vokal.controllers" )
 
         $scope.downloadBoard = function ()
         {
-            // canvas.deactivateAll();
-
-            // var initialCanvasScale = canvas.canvasScale;
-
             // Click an artifical anchor to 'force' download.
             var link = document.createElement('a');
             link.download = $scope.fileName + '.png';
             link.href = $scope.getCanvasBlob();
             link.click();
-
-            // canvas.canvasScale = initialCanvasScale;
         };
 
         $scope.getCanvasBlob = function ()
