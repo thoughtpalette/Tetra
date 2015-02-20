@@ -2,9 +2,9 @@
 
 angular.module( "vokal.controllers" )
 
-.controller( "Home", [ "$scope",
+.controller( "Home", [ "$scope", "$modal",
 
-    function ( $scope )
+    function ( $scope, $modal )
     {
         "use strict";
 

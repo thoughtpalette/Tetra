@@ -1,5 +1,22 @@
 <aside>
 
+    <form class="form-inline title" data-ng-submit="editName()" data-ng-show="nameSet">
+        <div class="form-group">
+            <label for="text">Chart: {{ fileName }}
+                <button class="btn btn-default" type="submit">Edit</button>
+            </label>
+        </div>
+    </form>
+
+    <form class="form-inline title" data-ng-submit="setName(fileName)" data-ng-hide="nameSet">
+        <div class="form-group">
+            <label for="text">
+                <input type="text" class="form-control" id="text" ng-model="fileName" placeholder="Name File">
+                <button class="btn btn-success" type="submit">Set Name</button>
+            </label>
+        </div>
+    </form>
+
     <div class="btn-group btn-group-justified tools " role="group" aria-label="...">
         <div class="btn-group" role="group">
             <button type="button" class="btn btn-default"
@@ -9,16 +26,26 @@
             <button type="button" class="btn btn-default"
             data-ng-click="enterDrawingMode()"><i class="glyphicon glyphicon-pencil"></i></button>
         </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-danger" data-ng-click="clearCanvas()">
+                <i class="glyphicon glyphicon-remove"></i>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary" data-ng-click="downloadBoard()">
+                <i class="glyphicon glyphicon-floppy-disk"></i>
+            </button>
+        </div>
     </div>
 
     <form class="form-inline add-page" data-ng-submit="addToCanvas(title, typeSelected, tierSelected)" data-ng-show="isPageMode">
 
         <div class="form-group">
             <label for="">Select Page Type
-                <select name="" id="" data-ng-options="item.type for item in pageOptions" data-ng-model="typeSelected"></select>
+                <select class="form-control" name="" id="" data-ng-options="item.type for item in pageOptions" data-ng-model="typeSelected"></select>
             </label>
             <label for="">Select Page Tier
-                <select name="" id="" data-ng-options="item.tier for item in pageTiers" data-ng-model="tierSelected"></select>
+                <select class="form-control" name="" id="" data-ng-options="item.tier for item in pageTiers" data-ng-model="tierSelected"></select>
             </label>
             <label class="sr-only" for="text">Page Title</label>
             <input type="text" class="form-control" id="text" ng-model="title" placeholder="Page Title">
