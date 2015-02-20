@@ -16,7 +16,7 @@ angular.module( "vokal.controllers" )
 
         $scope.isPageMode = true;
 
-        $scope.pageOptions = [{id: 1, type: "Landing Page"}, {id: 2, type: "Site Level"}, {id: 3, type: "Form/Dynamic Component"}, {id: 4, type: "To be produced now"}, {id: 5, type: "Title not yet decided"}, {id: 6, type: "To be added at later time"}, {id: 7, type: "Link opens new window or leaves site"}, {id: 8, type: "Content alts on same page"}, {id: 9, type: "Content is part of same page"}, {id: 10, type: "Contents to be removed"}, {id: 11, type: "Email Link"}, {id: 12, type: "Download"} ];
+        $scope.pageOptions = [{id: 1, type: "Landing Page"}, {id: 2, type: "Site Level"}, {id: 3, type: "Dynamic Component"}, {id: 4, type: "To be produced now"}, {id: 5, type: "Title not yet decided"}, {id: 6, type: "To be added at later time"}, {id: 7, type: "New window"}, {id: 8, type: "Content alts on same page"}, {id: 9, type: "Content is part of same page"}, {id: 10, type: "Contents to be removed"}, {id: 11, type: "Email Link"}, {id: 12, type: "Download"} ];
 
         // Start up
         canvas.setWidth( $( ".main-container" ).width() - 100 );
@@ -29,30 +29,53 @@ angular.module( "vokal.controllers" )
         canvas.setBackgroundImage(img.src, canvas.renderAll.bind(canvas), {
                     originX: 'left',
                     originY: 'top',
-                    left: 100,
+                    left: 0,
                     top: 0
                 });
         };
 
-        img.src = "/build/images/legend.png";
+        img.src = "/build/images/large-bg.jpg";
 
-        fabric.Image.fromURL("/build/images/vokal-logo.jpg", function(oImg) {
-              canvas.add(oImg.set({
-                hasControls: false,
-                selection: false,
-                left: 0,
-                top: 0
-              }));
-        });
+        $scope.removePage = function ( title )
+        {
+
+            $.each(canvas.getObjects(), function ( i, val )
+            {
+                if ( (val.title !== undefined) && (val.title = title) )
+                {
+                    canvas.remove(val);
+                    canvas.renderAll();
+                }
+            });
+
+            angular.forEach( $scope.fabricItems, function ( key, index )
+            {
+                if ( key.pageTitle = title )
+                {
+                    $scope.fabricItems.splice( index, 1 );
+                }
+            });
+        };
 
         $scope.clearCanvas = function ()
         {
             canvas.clear();
             $scope.fabricItems = [];
+            $scope.fileName = "";
+            $scope.nameSet = false;
         };
 
         $scope.editName = function ()
         {
+            $.each(canvas.getObjects(), function ( i, val )
+            {
+                if ( (val.title !== undefined) && (val.title = $scope.fileName ) )
+                {
+                    canvas.remove(val);
+                    canvas.renderAll();
+                }
+            });
+
             $scope.nameSet = false;
         };
 
@@ -67,7 +90,10 @@ angular.module( "vokal.controllers" )
               fill: "#818385",
               fontSize: 12,
               top : 750,
-              left: 35
+              left: 35,
+              title: fileName,
+              hasControls: false,
+              selectable: false
             });
 
             canvas.add(pageName);
@@ -161,18 +187,22 @@ angular.module( "vokal.controllers" )
         $scope.getShapeType = function ( title, type, tier )
         {
             var tierWidth,
-                tierHeight;
+                tierHeight,
+                tierFontSize;
 
             if ( tier.tier == 1 ) {
                 tierWidth = 164;
                 tierHeight = 110;
+                tierFontSize = 12;
             }
             else if ( tier.tier == 2 ) {
                 tierWidth = 164;
                 tierHeight = 110;
+                tierFontSize = 10;
             } else if ( tier.tier == 3 ) {
                 tierWidth = 100;
                 tierHeight = 66;
+                tierFontSize = 10;
             }
 
 
@@ -185,12 +215,12 @@ angular.module( "vokal.controllers" )
                       });
 
                     // create a rectangle object
-                    var t = new fabric.IText(title, {
+                    var t = new fabric.IText(title.toUpperCase(), {
                       fontFamily: "Helvetica",
                       fill: "#818385",
-                      fontSize: 12,
-                      top : 10,
-                      left: 35
+                      fontSize: tierFontSize,
+                      top : tierHeight,
+                      left: 0
                     });
 
 
@@ -202,8 +232,8 @@ angular.module( "vokal.controllers" )
                       hasRotatingPoint: false,
                       transparentCorners: false,
                       cornerSize: 7,
-                      stroke: "#000000",
-                      textAlign: "center"
+                      textAlign: "center",
+                      title: title
                     });
 
                     canvas.add(group);
@@ -211,19 +241,142 @@ angular.module( "vokal.controllers" )
                 case "Site Level":
 
                 break;
-                case "Form/Dynamic Component":
+                case "Dynamic Component":
+                    var r = new fabric.Rect({
+                        width: tierWidth,
+                        height: tierHeight,
+                        stroke: "#888a8d",
+                        strokeWidth: 2,
+                        fill: "#d1d2d3"
+                      });
 
+                    // create a rectangle object
+                    var t = new fabric.IText(title.toUpperCase(), {
+                      fontFamily: "Helvetica",
+                      fill: "#818385",
+                      fontSize: tierFontSize,
+                      top : tierHeight,
+                      left: 0
+                    });
+
+
+                    var group = new fabric.Group([ r, t ], {
+                      left: 100,
+                      top: 100,
+                      lockScalingX: true,
+                      lockScalingY: true,
+                      hasRotatingPoint: false,
+                      transparentCorners: false,
+                      cornerSize: 7,
+                      textAlign: "center",
+                      title: title
+                    });
+
+                    canvas.add(group);
                 break;
                 case "To be produced now":
+                    var r = new fabric.Rect({
+                        width: tierWidth,
+                        height: tierHeight,
+                        stroke: "#959699",
+                        strokeWidth: 2,
+                        fill: "#ffffff"
+                      });
 
+                    // create a rectangle object
+                    var t = new fabric.IText(title.toUpperCase(), {
+                      fontFamily: "Helvetica",
+                      fill: "#818385",
+                      fontSize: tierFontSize,
+                      top : tierHeight,
+                      left: 0
+                    });
+
+
+                    var group = new fabric.Group([ r, t ], {
+                      left: 100,
+                      top: 100,
+                      lockScalingX: true,
+                      lockScalingY: true,
+                      hasRotatingPoint: false,
+                      transparentCorners: false,
+                      cornerSize: 7,
+                      textAlign: "center",
+                      title: title
+                    });
+
+                    canvas.add(group);
                 break;
                 case "Title not yet decided":
+                    var r = new fabric.Rect({
+                        width: tierWidth,
+                        height: tierHeight,
+                        stroke: "#c4c6c8",
+                        strokeWidth: 2,
+                        fill: "#ffffff"
+                      });
+
+                    // create a rectangle object
+                    var t = new fabric.IText(title.toUpperCase(), {
+                      fontFamily: "Helvetica",
+                      fill: "#e5e5e6",
+                      fontSize: tierFontSize,
+                      top : tierHeight,
+                      left: 0
+                    });
+
+
+                    var group = new fabric.Group([ r, t ], {
+                      left: 100,
+                      top: 100,
+                      lockScalingX: true,
+                      lockScalingY: true,
+                      hasRotatingPoint: false,
+                      transparentCorners: false,
+                      cornerSize: 7,
+                      textAlign: "center",
+                      title: title
+                    });
+
+                    canvas.add(group);
 
                 break;
                 case "To be added at later time":
 
                 break;
-                case "Link opens in new window or leaves site":
+                case "New window":
+                    var r = new fabric.Rect({
+                        width: tierWidth,
+                        height: tierHeight,
+                        strokeDashArray: [5, 5],
+                        stroke: "#c4c6c8",
+                        strokeWidth: 2,
+                        fill: "#ffffff"
+                      });
+
+                    // create a rectangle object
+                    var t = new fabric.IText(title.toUpperCase(), {
+                      fontFamily: "Helvetica",
+                      fill: "#818385",
+                      fontSize: tierFontSize,
+                      top : tierHeight,
+                      left: 0
+                    });
+
+
+                    var group = new fabric.Group([ r, t ], {
+                      left: 100,
+                      top: 100,
+                      lockScalingX: true,
+                      lockScalingY: true,
+                      hasRotatingPoint: false,
+                      transparentCorners: false,
+                      cornerSize: 7,
+                      textAlign: "center",
+                      title: title
+                    });
+
+                    canvas.add(group);
 
                 break;
                 case "Content alts on same page":
