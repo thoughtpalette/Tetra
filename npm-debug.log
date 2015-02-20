@@ -8,13 +8,13 @@
 7 info start project-name@
 8 verbose unsafe-perm in lifecycle true
 9 info project-name@ Failed to exec start script
-10 error project-name@ start: `npm install && bower install && grunt && node server`
+10 error project-name@ start: `npm install && bower install --allow-root && grunt && node server`
 10 error Exit status 1
 11 error Failed at the project-name@ start script.
 11 error This is most likely a problem with the project-name package,
 11 error not with npm itself.
 11 error Tell the author that this fails on your system:
-11 error     npm install && bower install && grunt && node server
+11 error     npm install && bower install --allow-root && grunt && node server
 11 error You can get their info via:
 11 error     npm owner ls project-name
 11 error There is likely additional logging output above.
