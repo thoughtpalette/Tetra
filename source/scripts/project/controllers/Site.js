@@ -8,63 +8,94 @@ angular.module( "vokal.controllers" )
     {
         "use strict";
 
-        $scope.canvas = new fabric.Canvas('main');
+        var canvas = new fabric.Canvas('main');
         $scope.fabricItems = [];
         $scope.pageTiers = [{tier: 1 }, {tier: 2 }, {tier: 3 } ];
+        $scope.fileName = "";
+        $scope.nameSet = false;
 
         $scope.isPageMode = true;
 
         $scope.pageOptions = [{id: 1, type: "Landing Page"}, {id: 2, type: "Site Level"}, {id: 3, type: "Form/Dynamic Component"}, {id: 4, type: "To be produced now"}, {id: 5, type: "Title not yet decided"}, {id: 6, type: "To be added at later time"}, {id: 7, type: "Link opens new window or leaves site"}, {id: 8, type: "Content alts on same page"}, {id: 9, type: "Content is part of same page"}, {id: 10, type: "Contents to be removed"}, {id: 11, type: "Email Link"}, {id: 12, type: "Download"} ];
 
         // Start up
-        $scope.canvas.setWidth( $( ".main-container" ).width() - 100 );
-        $scope.canvas.setHeight( $( ".main-container" ).height() - 100 );
-        $scope.canvas.backgroundColor = "white";
-        $scope.canvas.calcOffset();
+        canvas.setWidth( $( ".main-container" ).width() - 100 );
+        canvas.setHeight( $( ".main-container" ).height() - 100 );
+        canvas.backgroundColor = "white";
+        canvas.calcOffset();
 
         var img = new Image();
         img.onload = function(){
-        $scope.canvas.setBackgroundImage(img.src, $scope.canvas.renderAll.bind($scope.canvas), {
+        canvas.setBackgroundImage(img.src, canvas.renderAll.bind(canvas), {
                     originX: 'left',
                     originY: 'top',
                     left: 100,
                     top: 0
                 });
         };
+
         img.src = "/build/images/legend.png";
+
+        fabric.Image.fromURL("/build/images/vokal-logo.jpg", function(oImg) {
+              canvas.add(oImg.set({
+                hasControls: false,
+                selection: false,
+                left: 0,
+                top: 0
+              }));
+        });
 
         $scope.clearCanvas = function ()
         {
-            $scope.canvas.clear();
-            $scope.fabricItems
+            canvas.clear();
+            $scope.fabricItems = [];
+        };
+
+        $scope.editName = function ()
+        {
+            $scope.nameSet = false;
+        };
+
+        $scope.setName = function ( fileName )
+        {
+            $scope.nameSet = true;
+            $scope.fileName = fileName;
+
+            // create a rectangle object
+            var pageName = new fabric.IText(fileName, {
+              fontFamily: "Helvetica",
+              fill: "#818385",
+              fontSize: 12,
+              top : 750,
+              left: 35
+            });
+
+            canvas.add(pageName);
         };
 
         $scope.downloadBoard = function ()
         {
-            // Stops active object outline from showing in image
-            $scope.canvas.deactivateAll();
+            // canvas.deactivateAll();
 
-            var initialCanvasScale = $scope.canvas.canvasScale;
+            // var initialCanvasScale = canvas.canvasScale;
 
             // Click an artifical anchor to 'force' download.
             var link = document.createElement('a');
-            var filename = 'main' + '.png';
-            link.download = filename;
+            link.download = $scope.fileName + '.png';
             link.href = $scope.getCanvasBlob();
             link.click();
 
-            $scope.canvas.canvasScale = initialCanvasScale;
-            $scope.canvas.setZoom();
+            // canvas.canvasScale = initialCanvasScale;
         };
 
         $scope.getCanvasBlob = function ()
         {
-                var base64Data = $scope.getCanvasData();
-                var data = base64Data.replace('data:image/png;base64,', '');
-                var blob = b64toBlob(data, 'image/png');
-                var blobUrl = URL.createObjectURL(blob);
+            var base64Data = $scope.getCanvasData();
+            var data = base64Data.replace('data:image/png;base64,', '');
+            var blob = b64toBlob(data, 'image/png');
+            var blobUrl = URL.createObjectURL(blob);
 
-                return blobUrl;
+            return blobUrl;
         };
 
         function b64toBlob(b64Data, contentType, sliceSize) {
@@ -93,9 +124,9 @@ angular.module( "vokal.controllers" )
 
         $scope.getCanvasData = function ()
         {
-            var data = $scope.canvas.toDataURL({
-                width: $scope.canvas.getWidth(),
-                height: $scope.canvas.getHeight(),
+            var data = canvas.toDataURL({
+                width: canvas.getWidth(),
+                height: canvas.getHeight(),
                 multiplier: self.downloadMultipler
             });
 
@@ -105,12 +136,12 @@ angular.module( "vokal.controllers" )
         $scope.enterDrawingMode = function ()
         {
             $scope.isPageMode = false;
-            $scope.canvas.isDrawingMode = true;
+            canvas.isDrawingMode = true;
         };
 
         $scope.enterPageMode = function ()
         {
-            $scope.canvas.isDrawingMode = false;
+            canvas.isDrawingMode = false;
             $scope.isPageMode = true;
         };
 
@@ -175,7 +206,7 @@ angular.module( "vokal.controllers" )
                       textAlign: "center"
                     });
 
-                    $scope.canvas.add(group);
+                    canvas.add(group);
                 break;
                 case "Site Level":
 

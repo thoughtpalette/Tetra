@@ -1,5 +1,22 @@
 <aside>
 
+    <form class="form-inline title" data-ng-submit="editName()" data-ng-show="nameSet">
+        <div class="form-group">
+            <label for="text">Chart: {{ fileName }}
+                <button class="btn btn-default" type="submit">Edit</button>
+            </label>
+        </div>
+    </form>
+
+    <form class="form-inline title" data-ng-submit="setName(fileName)" data-ng-hide="nameSet">
+        <div class="form-group">
+            <label for="text">
+                <input type="text" class="form-control" id="text" ng-model="fileName" placeholder="Name File">
+                <button class="btn btn-success" type="submit">Set Name</button>
+            </label>
+        </div>
+    </form>
+
     <div class="btn-group btn-group-justified tools " role="group" aria-label="...">
         <div class="btn-group" role="group">
             <button type="button" class="btn btn-default"
@@ -16,7 +33,7 @@
         </div>
         <div class="btn-group" role="group">
             <button type="button" class="btn btn-primary" data-ng-click="downloadBoard()">
-                <i class="glyphicon glyphicon-download-alt"></i>
+                <i class="glyphicon glyphicon-floppy-disk"></i>
             </button>
         </div>
     </div>
