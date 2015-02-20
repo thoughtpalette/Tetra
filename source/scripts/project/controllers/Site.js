@@ -36,23 +36,25 @@ angular.module( "vokal.controllers" )
 
         img.src = "/build/images/large-bg.jpg";
 
-        $scope.removePage = function ( title )
+        $scope.removePage = function ( id )
         {
 
             $.each(canvas.getObjects(), function ( i, val )
             {
-                if ( (val.title !== undefined) && (val.title = title) )
+                if ( val.rand === id )
                 {
                     canvas.remove(val);
                     canvas.renderAll();
+                    return false;
                 }
             });
 
-            angular.forEach( $scope.fabricItems, function ( key, index )
+            $.each( $scope.fabricItems, function ( index, key )
             {
-                if ( key.pageTitle = title )
+                if ( key.pageId === id )
                 {
                     $scope.fabricItems.splice( index, 1 );
+                    return false;
                 }
             });
         };
@@ -170,18 +172,20 @@ angular.module( "vokal.controllers" )
 
         $scope.addToCanvas = function ( title, type, tier )
         {
+            var randId = Math.random();
 
-            $scope.getShapeType( title, type, tier );
+            $scope.getShapeType( title, type, tier, randId );
 
             $scope.fabricItems.push(
                 {
+                    pageId: randId,
                     pageTitle: title,
                     pageType: type
                 }
             );
         };
 
-        $scope.getShapeType = function ( title, type, tier )
+        $scope.getShapeType = function ( title, type, tier, randId )
         {
             var tierWidth,
                 tierHeight,
@@ -201,6 +205,8 @@ angular.module( "vokal.controllers" )
                 tierHeight = 66;
                 tierFontSize = 10;
             }
+
+            console.log(title, type, tier, randId)
 
 
             switch (type.type) {
@@ -229,9 +235,10 @@ angular.module( "vokal.controllers" )
                       hasRotatingPoint: false,
                       transparentCorners: false,
                       cornerSize: 7,
-                      textAlign: "center",
-                      title: title
+                      textAlign: "center"
                     });
+
+                    group.rand = randId;
 
                     canvas.add(group);
                 break;
@@ -265,9 +272,10 @@ angular.module( "vokal.controllers" )
                       hasRotatingPoint: false,
                       transparentCorners: false,
                       cornerSize: 7,
-                      textAlign: "center",
-                      title: title
+                      textAlign: "center"
                     });
+
+                    group.rand = randId;
 
                     canvas.add(group);
                 break;
@@ -298,9 +306,10 @@ angular.module( "vokal.controllers" )
                       hasRotatingPoint: false,
                       transparentCorners: false,
                       cornerSize: 7,
-                      textAlign: "center",
-                      title: title
+                      textAlign: "center"
                     });
+
+                    group.rand = randId;
 
                     canvas.add(group);
                 break;
@@ -331,9 +340,10 @@ angular.module( "vokal.controllers" )
                       hasRotatingPoint: false,
                       transparentCorners: false,
                       cornerSize: 7,
-                      textAlign: "center",
-                      title: title
+                      textAlign: "center"
                     });
+
+                    group.rand = randId;
 
                     canvas.add(group);
 
@@ -369,9 +379,10 @@ angular.module( "vokal.controllers" )
                       hasRotatingPoint: false,
                       transparentCorners: false,
                       cornerSize: 7,
-                      textAlign: "center",
-                      title: title
+                      textAlign: "center"
                     });
+
+                    group.rand = randId;
 
                     canvas.add(group);
 
