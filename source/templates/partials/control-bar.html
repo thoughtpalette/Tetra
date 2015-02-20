@@ -58,7 +58,7 @@
     <ul class="page-list">
         <li data-ng-repeat="item in fabricItems track by $index" class="clearfix">
            {{ item.pageTitle }} - <span>{{ item.pageType.type }}</span>
-           <button class="btn btn-danger" data-ng-click="removePage(item.pageTitle)">&times;</button>
+           <button class="btn btn-danger" data-ng-click="removePage(item.pageId)">&times;</button>
         </li>
     </ul>
 
