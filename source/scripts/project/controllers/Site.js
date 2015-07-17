@@ -39,6 +39,7 @@ angular.module( "vokal.controllers" )
         $scope.removePage = function ( id )
         {
 
+            console.log(":}");
             $.each(canvas.getObjects(), function ( i, val )
             {
                 if ( val.rand === id )
