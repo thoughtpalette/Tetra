@@ -1,6 +1,6 @@
 image: bradrydzewski/node:0.10
-env:
 script:
+    - echo this is working
     - npm install
     - bower --allow-root install
     - npm install -g grunt
