@@ -1,10 +1,10 @@
 image: bradrydzewski/node:0.10
 script:
-    - echo this is working
+    - git config --global url."https://github".insteadOf git://github
     - npm install
     - bower --allow-root install
-    - npm install -g grunt
-    - npm test
+    - chmod +x run-build.sh
+    - ./run-build.sh
 notify:
     email:
         recipients:
