@@ -1,26 +1,10 @@
 image: docker.vokal.io/node-testing
 env:
-    - AWS_ACCESS_KEY=$$awsAccessKey
-    - AWS_SECRET_KEY=$$awsSecretKey
-    - AWS_S3_BUCKET=$$awsS3Bucket
-    - AWS_CLOUDFRONT_DIST_ID=$$awsCloudfrontDistId
-    - BOWER_LOGIN=$$bowerLogin
-    - BOWER_OAUTH=$$bowerOauth
-    - CODECOV_TOKEN=$$codecovToken
 script:
-    - echo "machine github.com" > ~/.netrc
-    - echo "login $BOWER_LOGIN" >> ~/.netrc
-    - echo "password $BOWER_OAUTH" >> ~/.netrc
-    - git config --global url."https://github".insteadOf git://github
     - npm install
     - bower --allow-root install
-    - chmod +x run-build.sh
-    - ./run-build.sh
-# seed project isn't deployed
-# deploy:
-#     bash:
-#         script:
-#             - grunt deploy --trackjs=1 --ga=1 --aws-access-key-id=$AWS_ACCESS_KEY --aws-secret-access-key=$AWS_SECRET_KEY --aws-s3-bucket=$AWS_S3_BUCKET --aws-cloudfront-distribution-id=$AWS_CLOUDFRONT_DIST_ID --gitver=$(git rev-parse --short HEAD)
+    - npm install -g grunt
+    - npm test
 notify:
     email:
         recipients:
