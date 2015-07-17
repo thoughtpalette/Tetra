@@ -12,6 +12,8 @@ node server &
 PIDS[2]=$!
 sleep 2
 
+npm install -g grunt
+npm install -g bower
 npm test
 
 RESULT=$?
