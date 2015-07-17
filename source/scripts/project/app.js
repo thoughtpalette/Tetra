@@ -10,16 +10,13 @@ angular.module( "vokal", [
     "vokal.services",
     "vokal.directives",
     "vokal.filters",
-    "vokal.API",
     "vokal.RouteAuth",
     "ui.bootstrap"
 ] )
 
-.config( [ "$routeProvider", "$locationProvider", "$sceDelegateProvider",
-        "APIProvider", "APIRoot", "LoginPath", "RouteAuthProvider",
+.config( [ "$routeProvider", "$locationProvider", "$sceDelegateProvider", "APIRoot", "LoginPath", "RouteAuthProvider",
 
-    function ( $routeProvider, $locationProvider, $sceDelegateProvider,
-        APIProvider, APIRoot, LoginPath, RouteAuthProvider )
+    function ( $routeProvider, $locationProvider, $sceDelegateProvider, APIRoot, LoginPath, RouteAuthProvider )
     {
         "use strict";
 
@@ -37,7 +34,6 @@ angular.module( "vokal", [
             [ "self" ]
         );
 
-        APIProvider.setRootPath( APIRoot );
         RouteAuthProvider.setRedirectPath( LoginPath );
 
     }
