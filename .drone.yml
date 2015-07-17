@@ -1,6 +1,7 @@
 image: bradrydzewski/node:0.10
 script:
-    - npm install
+    - npm install -g
+    - npm install -g bower
     - bower --allow-root install
     - chmod +x run-build.sh
     - ./run-build.sh
