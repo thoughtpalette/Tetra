@@ -12,7 +12,7 @@
   "appPath": "source",
   "buildPath": "build",
   "scripts": {
-    "start": "npm install && bower install --allow-root && grunt && node server"
+    "start": "npm install && bower install && grunt && node server"
   },
   "devDependencies": {
     "grunt-contrib-watch": "^0.6.1"
