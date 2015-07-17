@@ -24,9 +24,4 @@ script:
 notify:
     email:
         recipients:
-            - jarrett.widman@vokal.io # swap this for the project
-    webhook:
-        urls:
-            - https://dronebot.vokal.io/hook
-        on_success: true
-        on_failure: true
+            - chris@nelsoncash.com # swap this for the project
