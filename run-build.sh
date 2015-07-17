@@ -7,13 +7,13 @@ PIDS[0]=$!
 
 #google-chrome --remote-debugging-port=9222 &
 #PIDS[1]=$!
+npm install -g grunt
+npm install -g bower
 
 node server &
 PIDS[2]=$!
 sleep 2
 
-npm install -g grunt
-npm install -g bower
 npm test
 
 RESULT=$?
