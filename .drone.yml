@@ -1,4 +1,4 @@
-image: docker.vokal.io/node-testing
+image: bradrydzewski/node:0.10
 env:
 script:
     - npm install
