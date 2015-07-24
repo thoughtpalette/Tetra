@@ -2,11 +2,11 @@
 
 describe( "The page", function ()
 {
-    it( "should do something", function ()
+    it( "Check canvas exists", function ()
     {
         browser.get( "/" );
 
-        expect( element( by.css( "header" ) ).isPresent() ).toBe( true );
+        expect( element( by.id( "main" ) ).isPresent() ).toBe( true );
     } );
 
 } );
