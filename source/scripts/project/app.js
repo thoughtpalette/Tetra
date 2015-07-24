@@ -9,8 +9,7 @@ angular.module( "vokal", [
     "vokal.controllers",
     "vokal.services",
     "vokal.directives",
-    "vokal.filters",
-    "ui.bootstrap"
+    "vokal.filters"
 ] )
 
 .config( [ "$routeProvider", "$locationProvider", "$sceDelegateProvider",
