@@ -15,7 +15,7 @@
     "start": "npm install && bower install && grunt && node server",
     "webdriver-update": "node ./node_modules/protractor/bin/webdriver-manager update",
     "karma-test": "node ./node_modules/karma/bin/karma start karma-config",
-    "test": "grunt clean && grunt && npm run webdriver-update && grunt test"
+    "test": "grunt clean && grunt && npm grunt test"
   },
   "devDependencies": {
     "grunt-contrib-watch": "^0.6.1"
