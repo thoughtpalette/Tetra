@@ -4,7 +4,7 @@ module.exports = {
         noColor: false,
         coverageDir: "coverage/protractor",
         args: {
-            baseUrl: "http://localhost:3000"
+            baseUrl: "http://localhost:1338"
         }
     },
     targets: {
