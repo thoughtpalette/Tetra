@@ -14,6 +14,6 @@ app.get( "*", function( req, res, next )
     res.status( 200 ).sendFile( __dirname + "/build/index.html" );
 } );
 
-var port = process.env.PORT || 1337;
+var port = process.env.PORT || 1338;
 http.createServer( app ).listen( port );
 console.log( "Server running on " + port );

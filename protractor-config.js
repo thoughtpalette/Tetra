@@ -10,7 +10,7 @@ exports.config = {
         "browserName": "chrome"
     },
     directConnect: true,
-    baseUrl: "http://localhost:1337",
+    baseUrl: "http://localhost:1338",
 
     // Spec patterns are relative to the current working directly when protractor is called.
     specs: [ "tests/*.js" ],
