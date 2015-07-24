@@ -15,7 +15,7 @@
     "start": "npm install && bower install && grunt && node server",
     "webdriver-update": "node ./node_modules/protractor/bin/webdriver-manager update",
     "karma-test": "node ./node_modules/karma/bin/karma start karma-config",
-    "test": "grunt clean && grunt && npm grunt test"
+    "test": "grunt clean && grunt && npm run webdriver-update && grunt test"
   },
   "devDependencies": {
     "grunt-contrib-watch": "^0.6.1"
@@ -33,6 +33,14 @@
     "grunt-contrib-copy": "^0.6.0",
     "grunt-text-replace": "^0.3.12",
     "load-grunt-config": "^0.13.1",
-    "grunt-aws": "^0.4.0"
+    "grunt-aws": "^0.4.0",
+    "protractor": "^1.6.0",
+    "grunt-protractor-coverage": "^0.2.13",
+    "grunt-istanbul": "^0.3.0",
+    "karma": "^0.12.24",
+    "karma-jasmine": "^0.1.5",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-coverage": "~0.1",
+    "jasmine-reporters": "~1.0.0"
   }
 }

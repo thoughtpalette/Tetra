@@ -5,3 +5,4 @@ node_modules
 .vagrant
 .DS_Store
 /coverage
+npm-debug.log
