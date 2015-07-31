@@ -12,7 +12,7 @@
   "appPath": "source",
   "buildPath": "build",
   "scripts": {
-    "start": "npm install && bower install && grunt && node server",
+    "start": "npm install && bower install --allow-root && grunt && node server",
     "webdriver-update": "node ./node_modules/protractor/bin/webdriver-manager update",
     "karma-test": "node ./node_modules/karma/bin/karma start karma-config",
     "test": "grunt clean && grunt && npm run webdriver-update && grunt test"
