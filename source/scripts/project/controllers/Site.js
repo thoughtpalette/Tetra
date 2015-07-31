@@ -206,9 +206,6 @@ angular.module( "vokal.controllers" )
                 tierFontSize = 10;
             }
 
-            console.log(title, type, tier, randId)
-
-
             switch (type.type) {
                 case "Landing Page":
                     var r = new fabric.Rect({
