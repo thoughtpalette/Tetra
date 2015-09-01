@@ -13,5 +13,6 @@ module.exports = function ( grunt )
                 cloudfrontDistributionId: grunt.option( "aws-cloudfront-distribution-id" )
             }
         }
+
     } );
 };
