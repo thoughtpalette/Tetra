@@ -26,6 +26,3 @@ do
 done
 
 exit $RESULT
-
-echo "lol"
-
