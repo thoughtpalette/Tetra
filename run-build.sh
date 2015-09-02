@@ -27,4 +27,5 @@ done
 
 exit $RESULT
 
+echo "lol"
 
