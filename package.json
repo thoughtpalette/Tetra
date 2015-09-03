@@ -39,6 +39,7 @@
     "karma": "^0.12.24",
     "karma-jasmine": "^0.1.5",
     "karma-chrome-launcher": "^0.1.4",
-    "karma-coverage": "~0.1"
+    "karma-coverage": "~0.1",
+    "jasmine-reporters": "~1.0.0"
   }
 }
